@@ -2,6 +2,7 @@ package edu.school.mgmt.service;
 
 import java.util.List;
 
+import edu.school.mgmt.model.Teacher;
 import edu.school.mgmt.model.User;
 
 public interface UserService {
@@ -17,5 +18,7 @@ public interface UserService {
 	public List<User> getAllUser();
 
 	public User getUserByLogin(String login);
+	
+	public List<Teacher> getTeachers();
 	
 }

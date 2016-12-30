@@ -1,0 +1,52 @@
+    
+.card-style {
+    display: block;
+    background-color: #fff;
+    height: 100px;
+    width: 350px;
+    margin: 20px 0px;
+    box-shadow: 1px 1px 8px #999;
+    cursor: pointer;
+}
+.card-img {
+    height: 100px;
+    width: 100px;
+}
+.media-heading {
+    margin-top: 10px;
+    color: #444;
+}
+.media-heading:hover, a:link {
+    color: #00C853;
+    text-decoration: none;
+}
+.members {
+    margin-top: 20px;
+    color: #999;
+    float: left;
+ }
+ .btn-part {
+     display: inline-block;
+     margin: 10px;
+     float: right;
+ }
+
+
+.panel.panel--styled {
+    color : #fff;
+    border-radius: 0px;
+    margin-top:10px;
+}
+
+#small{
+    color : #fff;
+}
+
+.panelTop {
+    padding: 10px;
+}
+
+.panelBottom {
+    border-top: 1px solid #e7e7e7;
+    padding-top: 10px;
+}

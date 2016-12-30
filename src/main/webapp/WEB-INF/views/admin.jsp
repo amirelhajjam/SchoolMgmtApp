@@ -26,8 +26,7 @@
  		<div class="content">
             <div class="container-fluid">
         		
-    			    		
-                
+    			                   
                
         		        	
         	</div>
@@ -47,6 +46,4 @@ $(document).ready(function(){
     $('#myTable').dataTable();
 });
 </script>
-
-
 </html>

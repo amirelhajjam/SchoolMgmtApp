@@ -13,16 +13,10 @@
                         <i class="glyphicon glyphicon-calendar"></i>
                         <p>Schedule</p>
                     </a>
-                </li>
-                <li>
-                    <a href="${pageContext.request.contextPath}/student/created/schedule">
-                        <i class="glyphicon glyphicon-plus"></i>
-                        <p>Created Schedule</p>
-                    </a>
-                </li>
+                </li>                
                 <li>
                     <a href="${pageContext.request.contextPath}/student/set/schedule">
-                        <i class="glyphicon glyphicon-calendar"></i>
+                        <i class="glyphicon glyphicon-plus"></i>
                         <p>Modify Schedule</p>
                     </a>
                 </li>
@@ -35,11 +29,11 @@
                 <li >
                     <a href="${pageContext.request.contextPath}/student/profile">
                         <i class="glyphicon glyphicon-user"></i>
-                        <p>My Profile</p>
+                        <p>Profile</p>
                     </a>
                 </li>
                 <li>
-                    <a href="">
+                    <a href="${pageContext.request.contextPath}/student/homeworks">
                         <i class="glyphicon glyphicon-pushpin"></i>
                         <p>Homework</p>
                     </a>

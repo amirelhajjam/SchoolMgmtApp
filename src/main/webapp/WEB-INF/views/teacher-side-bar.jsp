@@ -15,7 +15,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="${pageContext.request.contextPath}/teacher/assign/homework">
+                    <a href="${pageContext.request.contextPath}/teacher/homework">
                         <i class="pe-7s-graph"></i>
                         <p>Assign HomeWork</p>
                     </a>

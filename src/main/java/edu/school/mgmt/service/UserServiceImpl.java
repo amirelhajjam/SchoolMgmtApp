@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import edu.school.mgmt.dao.UserDao;
+import edu.school.mgmt.model.Teacher;
 import edu.school.mgmt.model.User;
 
 
@@ -45,6 +46,11 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public User getUserByLogin(String login) {
 		return userDao.getUserByLogin(login);
+	}
+
+	@Override
+	public List<Teacher> getTeachers() {
+		return userDao.getTeachers();
 	}
 
 

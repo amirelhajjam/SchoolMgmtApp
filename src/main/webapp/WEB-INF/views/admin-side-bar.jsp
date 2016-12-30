@@ -8,9 +8,15 @@
 
             <ul class="nav">
                 <li>
-                    <a href="${pageContext.request.contextPath}/admin">
-                        <i  class="fa fa-bars fa-4x" aria-hidden="true"></i>
-                        <p>Classes</p>
+                    <a href="${pageContext.request.contextPath}/admin/color">
+                        <i class="glyphicon glyphicon-calendar"></i>
+                        <p>Edit Schedule</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="${pageContext.request.contextPath}/admin/schedule">
+                        <i class="glyphicon glyphicon-calendar"></i>
+                        <p>Global Schedule</p>
                     </a>
                 </li>
                 <li>
@@ -20,7 +26,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="${pageContext.request.contextPath}/admin/subjects">
+                    <a href="${pageContext.request.contextPath}/admin/subject">
                         <i  class="fa fa-book fa-4x" aria-hidden="true"></i>
                         <p>Subjects</p>
                     </a>
