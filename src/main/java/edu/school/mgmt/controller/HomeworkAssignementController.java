@@ -1,7 +1,9 @@
 package edu.school.mgmt.controller;
 
+import java.util.List;
 import java.util.Set;
 
+import org.joda.time.LocalDate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -42,29 +44,38 @@ public class HomeworkAssignementController {
 	UserService userService;
 	
 	@RequestMapping(value = "/teacher/assign/homework", method = RequestMethod.POST)
-    public String assignHomework(Homework homework,@RequestParam int idSubject) {
+    public String assignHomework(Homework homework,@RequestParam int idSubject,@RequestParam String action) {
     	
 		try{
-			homeworkService.createHomework(homework);
+			LocalDate date = homework.getDueDate().minusDays(1);
+			Teacher teacher = null;
+			Subject subject = null;
 			
-			Teacher teacher = (Teacher) userService.getUserByLogin(helper.getPrincipal());
-			Subject subject = subjectService.getBySubjectId(idSubject);
+			if( action.equals("create") ){
+				homework.setDate(date);
+				homework.setCreationDate(new LocalDate());
+				homeworkService.createHomework(homework);				
+			}			
+			
+			teacher = (Teacher) userService.getUserByLogin(helper.getPrincipal());
+			subject = subjectService.getBySubjectId(idSubject);
 			homework.setTeacher(teacher);
 			homework.setSubject(subject);
-			
 			homeworkService.updateHomework(homework);
 			
-			Set<Student> students = scheduleService.getStudents(teacher.getIdUser(),subject.getIdSubject());
-			HomeworkAssignement assignement;
-			
-			for(Student s : students){
+			if( action.equals("create") ){
+				Set<Student> students = scheduleService.getStudents(teacher.getIdUser(),subject.getIdSubject());
+				HomeworkAssignement assignement;
 				
-				assignement = new HomeworkAssignement();
-				assignement.setHomework(homework);
-				assignement.setStudent(s);
-				
-				assignementService.createHomeworkAssignement(assignement);
-			}			
+				for(Student s : students){
+					
+					assignement = new HomeworkAssignement();
+					assignement.setHomework(homework);
+					assignement.setStudent(s);
+					
+					assignementService.createHomeworkAssignement(assignement);
+				}			
+			}
 			
 		}catch(Exception e){
 			e.printStackTrace();
@@ -72,5 +83,28 @@ public class HomeworkAssignementController {
         
         return "redirect:/teacher/homework";
     }
+
+	@RequestMapping(value = "/teacher/delete/homework", method = RequestMethod.GET)
+    public String deleteHomework(@RequestParam int idHomework) {
+    	
+		try{
+			
+			List<HomeworkAssignement> assignements = assignementService.getHomeworkAssignments(idHomework);
+			for(HomeworkAssignement a : assignements)
+				assignementService.deleteHomeworkAssignement(a);
+			
+			Homework homework = homeworkService.getByHomeworkId(idHomework);
+			homework.setSubject(null);
+			homework.setTeacher(null);
+			
+			homeworkService.deleteHomework(homework);
+			
+		}catch(Exception e){
+			e.printStackTrace();
+		}       
+        
+        return "redirect:/teacher/homework";
+    }
+	
 	
 }

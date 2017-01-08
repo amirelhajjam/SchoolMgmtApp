@@ -32,14 +32,19 @@ public class Homework {
 	private int duration;
 	
 	@DateTimeFormat(pattern="yyyy-MM-dd") 
-	@Column(name = "date", nullable = false)
+	@Column(name = "date")
 	@Type(type="org.jadira.usertype.dateandtime.joda.PersistentLocalDate")
 	private LocalDate date;
 	
 	@DateTimeFormat(pattern="yyyy-MM-dd") 
-	@Column(name = "dueDate", nullable = false)
+	@Column(name = "dueDate")
 	@Type(type="org.jadira.usertype.dateandtime.joda.PersistentLocalDate")
 	private LocalDate dueDate;
+	
+	@DateTimeFormat(pattern="yyyy-MM-dd") 
+	@Column(name = "creationDate"                                                                                   )
+	@Type(type="org.jadira.usertype.dateandtime.joda.PersistentLocalDate")
+	private LocalDate creationDate;
 	
 	@OneToOne(cascade={  CascadeType.MERGE, CascadeType.DETACH })
 	@LazyCollection(LazyCollectionOption.FALSE)
@@ -127,6 +132,14 @@ public class Homework {
 	public void setHomeworkAssignements(
 			List<HomeworkAssignement> homeworkAssignements) {
 		this.homeworkAssignements = homeworkAssignements;
+	}
+
+	public LocalDate getCreationDate() {
+		return creationDate;
+	}
+
+	public void setCreationDate(LocalDate creationDate) {
+		this.creationDate = creationDate;
 	}
 	
 }

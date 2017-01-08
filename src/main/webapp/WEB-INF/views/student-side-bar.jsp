@@ -9,7 +9,7 @@
 
             <ul class="nav">
                 <li>
-                    <a href="">
+                    <a href="${pageContext.request.contextPath}/student">
                         <i class="glyphicon glyphicon-calendar"></i>
                         <p>Schedule</p>
                     </a>
@@ -21,7 +21,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="">
+                    <a href="${pageContext.request.contextPath}/student/dashboard?day=0">
                         <i class="glyphicon glyphicon-dashboard"></i>
                         <p>Dashboard</p>
                     </a>
@@ -45,7 +45,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="admin-list-activities.html">
+                    <a href="${pageContext.request.contextPath}/student/activities">
                         <i  class="glyphicon glyphicon-th" ></i>
                         <p>Activities</p>
                     </a>

@@ -49,6 +49,8 @@ public class RegistrationController {
 			
 			userService.updateUser(user);
 			
+			// mail.send()
+			
 			redirectAttributes.addFlashAttribute("message", "you've been registered to SCHOOLAPP successfully please check your email to complete ");
 			redirectAttributes.addFlashAttribute("template","success");
 						

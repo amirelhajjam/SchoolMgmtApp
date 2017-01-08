@@ -3,6 +3,7 @@ package edu.school.mgmt.dao;
 import java.util.List;
 
 import org.hibernate.Criteria;
+import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 
@@ -17,6 +18,7 @@ public class HomeworkDaoImpl extends AbstractDao<Integer, Homework> implements H
 		Criteria criteria = createEntityCriteria();
 		criteria.createAlias("teacher", "t");
 		criteria.add(Restrictions.eq("t.idUser", idTeacher));
+		criteria.addOrder(Order.desc("dueDate"));
 		return (List<Homework>) criteria.list();
 	}
 	

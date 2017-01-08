@@ -29,5 +29,22 @@ public class ScheduleAssocDaoImpl extends AbstractDao<Integer,ScheduleAssoc> imp
 		return (List<ScheduleAssoc>) criteria.list();
 	}
 	
+	@Override
+	public ScheduleAssoc getStudentSubjectColor(int idTeacher,int idStudent,int idSubject) {
+		Criteria criteria = createEntityCriteria();
+		criteria.createAlias("teacher", "t");
+		criteria.createAlias("subject", "o");
+		criteria.createAlias("student", "s");
+		criteria.add(Restrictions.eq("s.idUser", idStudent));
+		criteria.add(Restrictions.eq("t.idUser", idTeacher));
+		criteria.add(Restrictions.eq("o.idSubject", idSubject));
+		
+		List<ScheduleAssoc> list = criteria.list();
+		if(list.size() == 1)
+			return (ScheduleAssoc) criteria.uniqueResult();
+		else
+			return (ScheduleAssoc) criteria.list().get(0);
+	}
+	
 	
 }

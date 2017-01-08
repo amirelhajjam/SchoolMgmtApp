@@ -32,7 +32,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="admin-users.html">
+                    <a href="">
                         <i  class="fa fa-users fa-4x" aria-hidden="true"></i>
                         <p>Users</p>
                     </a>
@@ -44,13 +44,13 @@
                     </a>
                 </li>
                 <li>
-                    <a href="admin-list-activities.html">
+                    <a  href="${pageContext.request.contextPath}/admin/activities">
                         <i  class="glyphicon glyphicon-th" ></i>
                         <p>Activities</p>
                     </a>
                 </li>
                 <li>
-                    <a href="admin-notifications.html">
+                    <a href="">
                         <i class="glyphicon glyphicon-info-sign"></i>
                         <p>Notifications</p>
                     </a>

@@ -2,6 +2,7 @@ package edu.school.mgmt.service;
 
 import java.util.List;
 
+import org.joda.time.LocalDate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -45,5 +46,22 @@ public class HomeworkAssignementServiceImpl implements HomeworkAssignementServic
 	public List<HomeworkAssignement> getStudentHomeworks(int idStudent) {
 		return homeworkAssignementdao.getStudentHomeworks(idStudent);
 	}
+
+	@Override
+	public List<HomeworkAssignement> getTodayStudentHomeworks(int idStudent,LocalDate today) {		
+		return homeworkAssignementdao.getTodayStudentHomeworks(idStudent, today);
+	}
+
+	@Override
+	public List<HomeworkAssignement> getHomeworkAssignments(int idHomework) {
+		return homeworkAssignementdao.getHomeworkAssignments(idHomework);
+	}
+
+	@Override
+	public HomeworkAssignement getHomeworkAssignmentofStudent(int idHomework, int idStudent) {
+		return homeworkAssignementdao.getHomeworkAssignmentofStudent(idHomework, idStudent);
+	}
+	
+	
 	
 }

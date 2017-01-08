@@ -10,6 +10,7 @@ import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
+import edu.school.mgmt.util.GetWeekAssignement;
 import edu.school.mgmt.util.HelperUtils;
 
 @Configuration
@@ -38,5 +39,10 @@ public class MvcConfiguration extends WebMvcConfigurerAdapter{
 	@Bean
 	public HelperUtils getHelperUtils(){
 		return new HelperUtils();
+	}
+	
+	@Bean
+	public GetWeekAssignement getGetWeekAssignement(){
+		return new GetWeekAssignement();
 	}
 }

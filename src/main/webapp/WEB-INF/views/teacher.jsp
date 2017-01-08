@@ -12,7 +12,8 @@
         <link href="<c:url value='/resources/css/light-bootstrap-dashboard.css' />" rel="stylesheet"></link>
         <link href="<c:url value='/resources/css/demo.css' />" rel="stylesheet"></link>
         <link href="<c:url value='/resources/css/style-blog.css' />" rel="stylesheet"></link>
-        <link href="<c:url value='/resources/css/jquery.dataTables.min.css' />" rel="stylesheet"></link>
+        <link href="<c:url value='/resources/css/tooltipster.bundle.min.css' />" rel="stylesheet"></link>
+        <link href="<c:url value='/resources/css/tooltipster-sideTip-shadow.min.css' />" rel="stylesheet"></link>
     </head>
  
  <body>
@@ -100,7 +101,15 @@
    
 </body>
 
-<script src="<c:url value="/resources/js/jquery.js"/>"></script>
+<script src="<c:url value="/resources/js/jquery.js"/>">
+</script><script src="<c:url value="/resources/js/tooltipster.bundle.min.js"/>" ></script>
+<script type="text/javascript">
+       $(document).on('ready', function() {
+           $('.tooltipster').tooltipster({
+               theme : 'tooltipster-shadow'
+           });
+       });
+</script>
 <script type="text/javascript">
 $(function(){  
 
@@ -150,7 +159,12 @@ function getWeekSchedule(week){
 		}		
 
 		for (var i = 0; i < data.length; i++) {			
+
 			tdId = data[i].day + "_" + data[i].startTime;
+
+			$( "#" + tdId ).attr('class', "tooltipster");
+			$( "#" + tdId ).attr( 'title' ,"Subject : " + data[i].subject );
+			
      		$( "#" + tdId ).css("background-color", ""+data[i].color);		
 		}
 		

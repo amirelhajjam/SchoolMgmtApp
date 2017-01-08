@@ -26,4 +26,6 @@ public interface ScheduleAssocService {
 	public Set<Student> getStudents(int idTeacher,int idSubject);
 	
 	public Set<Subject> getTeacherSubjects(int idTeacher);
+	
+	public ScheduleAssoc getStudentSubjectColor(int idTeacher, int idStudent, int idSubject);
 }

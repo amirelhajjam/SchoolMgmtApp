@@ -91,7 +91,10 @@
 									<div id="year">						
 									<div  class="form-group has-feedback">
 										<label class="control-label" for="userName1">YEAR</label>
-										<f:input path="year" type="number" class="form-control" id="userName1" />
+										<f:select path="year" class="form-control" >	
+			                              <option value="1">1st YEAR</option>
+			                              <option value="2">2sd YEAR</option>
+		                                </f:select>
 										<span id="helpBlock" class="help-block"><f:errors path="year" cssClass="errors"></f:errors></span>
 									</div>									
 									</div>	

@@ -27,19 +27,19 @@
                     </a>
                 </li>
                 <li>
-                    <a href="${pageContext.request.contextPath}/teacher/get/classes">
+                    <a href="">
                         <i class="pe-7s-note2"></i>
                         <p>Update Schedule</p>
                     </a>
                 </li>
                 <li>
-                    <a href="">
+                    <a href="${pageContext.request.contextPath}/teacher/create/activity">
                         <i class="pe-7s-news-paper"></i>
                         <p>Create Activity</p>
                     </a>
                 </li>
                 <li>
-                    <a href="">
+                    <a href="${pageContext.request.contextPath}/teacher/activities">
                         <i class="pe-7s-news-paper"></i>
                         <p>Activities</p>
                     </a>

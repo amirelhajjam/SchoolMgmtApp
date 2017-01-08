@@ -60,10 +60,15 @@
                                           </a>
                                         </td>
                                         <td>
-                                          <a type="button" class="btn btn-success btn-xs" >
-                                             <span class="glyphicon glyphicon-check" aria-hidden="true"></span>
-                                                 done
-                                          </a>
+                                          <c:if test="${ c.done == true }"> 
+                                          		<span class="glyphicon glyphicon-ok">done</span>
+                                          </c:if>
+                                          <c:if test="${ c.done == false }">
+	                                          <a type="button" class="btn btn-success btn-xs" href="${pageContext.request.contextPath}/${userContext }/student/set-done?idHomework=${c.homework.idHomework}">
+	                                             <span class="glyphicon glyphicon-check" aria-hidden="true"></span>
+	                                                 set as done
+	                                          </a>                                           
+                                          </c:if> 
                                         </td>
                                       </tr>
                                      </c:forEach>
@@ -113,9 +118,9 @@
 						    <form>
 							<div class="col-md-8 text-center">
 								<div class="form-group row">
-                                  <label for="example-text-input" class="col-xs-5 col-form-label">Change date :</label>
+                                  <label for="example-text-input" class="col-xs-5 col-form-label"></label>
                                   <div class="col-xs-7">
-                                    <input name="date" id="date-to-do" type="date"  class="form-control" value="" />
+                                    
                                   </div>
                                 </div>						
 							</div>

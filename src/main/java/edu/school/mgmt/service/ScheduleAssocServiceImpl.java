@@ -84,4 +84,9 @@ public class ScheduleAssocServiceImpl implements ScheduleAssocService {
 		scheduleAssocDao.delete(entity);
 	}
 
+	@Override
+	public ScheduleAssoc getStudentSubjectColor(int idTeacher, int idStudent, int idSubject) {
+		return scheduleAssocDao.getStudentSubjectColor(idTeacher, idStudent, idSubject);
+	}
+
 }

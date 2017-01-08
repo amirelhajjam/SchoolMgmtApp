@@ -35,7 +35,13 @@
 	                            </div>
 	                            <div class="content">
 	                                <f:form modelAttribute="homework" method="post"  action="${pageContext.request.contextPath}/teacher/assign/homework">                                   
-	                                    
+	                                    <input type="hidden" name="action" value="${ action }">	            
+	                                    <c:if test="${ action == 'update' }"> 
+		                                    <input type="hidden" name="idSubject" value="${ idSub }"/>
+		                                    <f:input type="hidden" path="idHomework"/>
+		                                    <f:input type="hidden" path="creationDate"/>
+		                                    <f:input type="hidden" path="date"/>
+		                                </c:if>
 	                                    <div class="row">                                                                            
 	                                        <div class="col-md-4">
 	                                            <div class="form-group">
@@ -52,10 +58,10 @@
 	                                        <div class="col-md-4">
 	                                            <div class="form-group">
 	                                              <label>Subject</label>
-	                                              <select name="idSubject" class="form-control" id="sel1">
-	                                              	  <c:forEach items="${subjects}" var="t">
-		                                                <option value="${t.idSubject }">${t.title }</option>
-		                                              </c:forEach>
+	                                              <select name="idSubject" <c:if test="${ action == 'update' }"> disabled </c:if> class="form-control" id="sel1">
+	                                              	  <c:forEach items="${subjects}" var="t">	                                              	  
+		                                                <option <c:if test="${t.idSubject == idSub }"> selected disabled </c:if> value="${t.idSubject }">${t.title }</option>
+		                                              </c:forEach>		                                              
 	                                              </select>
 	                                            </div>
 	                                        </div>
@@ -66,13 +72,7 @@
 	                                                <label>Estimated Time</label>
 	                                                <f:input path="duration" type="number"  class="form-control" placeholder="35 min" value="" />
 	                                            </div>
-	                                        </div>
-	                                        <div class="col-md-4">
-	                                            <div class="form-group">
-	                                                <label>Date </label>
-	                                                <f:input path="date" type="date"  class="form-control" value="" />
-	                                            </div>
-	                                        </div>                                        
+	                                        </div>                                       
 	                                    </div>
 	                                    <div class="row">
 	                                    	<div class="col-md-10">
@@ -81,7 +81,7 @@
 		                                            <f:textarea path="description" rows="5" class="form-control" placeholder="hello world sports " value=""></f:textarea>
 		                                        </div>
 		                                    </div>
-	                                    </div>
+	                                    </div>	                                    
 	                                    <button type="submit" class="btn btn-info btn-fill pull-right">Assign</button>
 	                                    <div class="clearfix"></div>
 	                                </f:form>
@@ -109,13 +109,13 @@
                                         <td>${c.dueDate}</td>
                                         <td>${c.duration}</td>
                                         <td>
-                                          <a type="button" class="btn btn-info btn-xs" href="">
+                                          <a type="button" class="btn btn-info btn-xs" href="${pageContext.request.contextPath}/teacher/update/homework?idHomework=${c.idHomework}">
                                              <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
                                                  modify
                                           </a>
                                         </td>
                                         <td>
-                                          <a type="button" class="btn btn-danger btn-xs" href="">
+                                          <a type="button" class="btn btn-danger btn-xs" href="${pageContext.request.contextPath}/teacher/delete/homework?idHomework=${c.idHomework}">
                                              <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
                                                  delete
                                           </a>
