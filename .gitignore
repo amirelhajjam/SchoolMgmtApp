@@ -1,5 +1,8 @@
 *.class
 
+.project
+.tern-project
+
 # Package Files #
 *.jar
 *.war
